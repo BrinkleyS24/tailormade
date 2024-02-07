@@ -3,9 +3,15 @@ from django.shortcuts import render
 from openai import OpenAI
 import json
 from django.views.decorators.csrf import csrf_exempt
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+#  the environment variable
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 client = OpenAI(
-    api_key="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"
+    api_key=OPENAI_API_KEY
 )
 
 @csrf_exempt
